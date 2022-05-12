@@ -51,6 +51,7 @@ public class MainActivity extends IntroActivity {
     public void btEntrar (View view){
 
         startActivity(new Intent(this, LoginActivity.class));
+//        startActivity(new Intent(this, LoginActivity.class));
 
     }
 
