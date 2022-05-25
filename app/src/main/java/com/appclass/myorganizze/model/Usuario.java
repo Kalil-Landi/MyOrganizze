@@ -1,4 +1,4 @@
-package com.appclass.myorganizze.activity.model;
+package com.appclass.myorganizze.model;
 
 public class Usuario {
 

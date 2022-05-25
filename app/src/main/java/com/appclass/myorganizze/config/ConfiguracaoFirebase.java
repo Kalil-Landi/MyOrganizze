@@ -1,4 +1,4 @@
-package com.appclass.myorganizze.activity.config;
+package com.appclass.myorganizze.config;
 
 import com.google.firebase.auth.FirebaseAuth;
 

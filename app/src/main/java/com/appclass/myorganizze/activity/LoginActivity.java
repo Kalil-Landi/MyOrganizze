@@ -11,8 +11,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.appclass.myorganizze.R;
-import com.appclass.myorganizze.activity.config.ConfiguracaoFirebase;
-import com.appclass.myorganizze.activity.model.Usuario;
+import com.appclass.myorganizze.config.ConfiguracaoFirebase;
+import com.appclass.myorganizze.model.Usuario;
+import com.appclass.myorganizze.databinding.ActivityPrincipalBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -26,6 +27,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button botaoEntrar;
     private Usuario usuario;
     private FirebaseAuth autenticacao;
+    private ActivityPrincipalBinding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,14 +71,14 @@ public class LoginActivity extends AppCompatActivity {
 
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
         autenticacao.signInWithEmailAndPassword(
-                usuario.getEmail(),
-                usuario.getSenha()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                usuario.getEmail(), usuario.getSenha() ).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 if (task.isSuccessful()){
 
                     abrirTelaPrincipal();
+                    //Toast.makeText(LoginActivity.this, "abriu porra", Toast.LENGTH_SHORT).show();
 
                 }else {
 
@@ -101,8 +104,9 @@ public class LoginActivity extends AppCompatActivity {
 
     public void abrirTelaPrincipal(){
 
-        //startActivity(new Intent(this, PrincipalActivity.class));
-        finish();
+        binding = ActivityPrincipalBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
     }
 
