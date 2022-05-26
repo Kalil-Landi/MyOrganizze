@@ -85,7 +85,7 @@ public class CadastroActivity extends AppCompatActivity {
                 if( task.isSuccessful() ){
 
                     finish();
-                    startActivity(new Intent(CadastroActivity.this, LoginActivity.class));
+                    //abrirTelaPrincipal();
 
                 }else{
 
@@ -107,6 +107,12 @@ public class CadastroActivity extends AppCompatActivity {
                 }
             }
         });
+
+    }
+
+    public void abrirTelaPrincipal(){
+
+        startActivity(new Intent(CadastroActivity.this, PrincipalActivity.class));
 
     }
 

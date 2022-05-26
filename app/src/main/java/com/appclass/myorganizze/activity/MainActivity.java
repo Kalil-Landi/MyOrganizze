@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.appclass.myorganizze.R;
 import com.appclass.myorganizze.config.ConfiguracaoFirebase;
-import com.appclass.myorganizze.databinding.ActivityPrincipalBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.heinrichreimersoftware.materialintro.app.IntroActivity;
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
@@ -16,14 +15,13 @@ import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
 public class MainActivity extends IntroActivity  {
 
     private FirebaseAuth autenticacao;
-    private ActivityPrincipalBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
 
-        verificarUsuarioLogado();
+
 
         setButtonBackVisible(false);
         setButtonNextVisible(false);
@@ -56,6 +54,13 @@ public class MainActivity extends IntroActivity  {
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        verificarUsuarioLogado();
+
+    }
 
     public void btEntrar (View view){
 
@@ -82,11 +87,7 @@ public class MainActivity extends IntroActivity  {
 
     public void abrirTelaPrincipal(){
 
-        binding = ActivityPrincipalBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
-
-
+        startActivity(new Intent(MainActivity.this, PrincipalActivity.class));
 
     }
 

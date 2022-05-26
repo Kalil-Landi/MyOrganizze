@@ -13,7 +13,6 @@ import android.widget.Toast;
 import com.appclass.myorganizze.R;
 import com.appclass.myorganizze.config.ConfiguracaoFirebase;
 import com.appclass.myorganizze.model.Usuario;
-import com.appclass.myorganizze.databinding.ActivityPrincipalBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -27,7 +26,6 @@ public class LoginActivity extends AppCompatActivity {
     private Button botaoEntrar;
     private Usuario usuario;
     private FirebaseAuth autenticacao;
-    private ActivityPrincipalBinding binding;
 
 
     @Override
@@ -104,9 +102,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void abrirTelaPrincipal(){
 
-        binding = ActivityPrincipalBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
+        startActivity(new Intent(LoginActivity.this, PrincipalActivity.class));
 
     }
 
